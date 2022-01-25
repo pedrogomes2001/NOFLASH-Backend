@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS Post(
+    id SERIAL PRIMARY KEY,
+    author INTEGER REFERENCES Account(id),
+    post VARCHAR(250) NOT NULL,
+    comments JSON
+)
