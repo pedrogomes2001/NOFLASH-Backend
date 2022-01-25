@@ -1,4 +1,9 @@
 /*
+const e = require('express');
+const request = require('supertest');
+
+const app = require('../../src/server');
+
 test('Teste #1 - Inserir Post', () => {
 return request(app).post(MAIN_ROUTE)
   .set('authorization', `bearer ${user.token}`)
