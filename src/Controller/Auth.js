@@ -14,7 +14,15 @@ export class Auth {
         const salt = await genSalt(18);
         const hashedPassword = await hash(password, salt);
 
+        let query = `
+            INSERT INTO Account (email, password) VALUES ($1, $2)
+        `;
 
+        pool.query(query, [email, hashedPassword]).then(() => {
+            return response.status(200).json({ msg: 'Account created' })
+        }).catch(() => {
+            return response.status(500).json({ msg: 'Failed to create account' })
+        })
     }
 
     async signin(request, response) {
