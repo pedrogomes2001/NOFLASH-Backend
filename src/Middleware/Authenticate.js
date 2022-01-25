@@ -1,6 +1,6 @@
 import { verify } from "jsonwebtoken";
 
-export const Authenticate = (request, response, next)=>{
+export const Authenticate = (request, response, next) => {
     const token = request.headers['x-auth-token'];
 
     try {
@@ -8,6 +8,6 @@ export const Authenticate = (request, response, next)=>{
         request.token = validatedToken;
         next()
     } catch (error) {
-        return response.status(403).json({error:'Sign in or create account to continue'})
+        return response.status(403).json({ error: 'Sign in or create account to continue' })
     }
 }
