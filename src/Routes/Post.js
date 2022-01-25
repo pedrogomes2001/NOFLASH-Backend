@@ -19,6 +19,16 @@ router.patch('/api/post/:id', json(), Authenticate, (request, response) => {
     Controller.update(request, response)
 })
 
+router.delete('/api/post/:id', Authenticate, (request, response) => {
+    Controller.delete(request, response)
+})
 
+router.post('/api/comment/:id', json(), Authenticate, (request, response) => {
+    Controller.comment(request, response)
+})
+
+router.get('/api/post/:id', (request, response) => {
+    Controller.getSpecificPost(request, response)
+})
 
 export default router
